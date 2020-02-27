@@ -17,11 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private Button mMilkButton;
     private Button mJuiceButton;
     private Button mTeaButton;
+    private Button mBeerButton;
     private Button mCheatButton;
 
     private static final String KEY_INDEX = "index";
 
-    private int secret = new Random().nextInt(5)+1;
+    private int secret = new Random().nextInt(6)+1;
     private int guesses = 3;
 
 
@@ -39,14 +40,10 @@ public class MainActivity extends AppCompatActivity {
         mMilkButton=findViewById(R.id.milk_button);
         mJuiceButton=findViewById(R.id.juice_button);
         mTeaButton=findViewById(R.id.tea_button);
+        mBeerButton=findViewById(R.id.beer_button);
+
         mCheatButton = findViewById(R.id.cheat_button);
 
-
-        /*
-        //set random selection
-        Random rand = null;
-        secret = rand.nextInt(1-5);
-*/
 
         mWaterButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -78,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 checkAnswer(5);
             }
         });
+        mBeerButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                checkAnswer(6);
+            }
+        });
 
         mCheatButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -93,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                   answer = "Juice";
               } else if (secret == 5) {
                   answer = "Tea";
+              } else if (secret == 6) {
+                  answer = "Beer";
               } else {
                   answer = "ERROR";
               }
