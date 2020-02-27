@@ -17,19 +17,21 @@ public class winningActivity extends AppCompatActivity {
     private ImageView mMilk;
     private ImageView mJuice;
     private ImageView mTea;
+    private ImageView mBeer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winning);
 
         Intent i = getIntent();
-        int secret = i.getIntExtra("drink",0);
+        int secret = i.getIntExtra("drink",-999);
 
         mWater = findViewById(R.id.water_imageview);
         mSoda = findViewById(R.id.soda_imageview);
         mMilk = findViewById(R.id.milk_imageview);
         mJuice = findViewById(R.id.juice_imageview);
         mTea = findViewById(R.id.tea_imageview);
+        mBeer = findViewById(R.id.beer_imageview);
 
         if(secret ==1){
             mWater.setVisibility(View.VISIBLE);
@@ -41,6 +43,8 @@ public class winningActivity extends AppCompatActivity {
             mJuice.setVisibility(View.VISIBLE);
         } else if (secret == 5){
             mTea.setVisibility(View.VISIBLE);
+        } else if (secret == 6){
+            mBeer.setVisibility(View.VISIBLE);
         }
 
         mPlayAgainButtton = findViewById(R.id.play_again_button);
